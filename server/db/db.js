@@ -22,7 +22,7 @@ if (process.env.DATABASE_URL) {
 }
 
 const db = new Sequelize(
-  `postgresql://Hanlynui:v2_44fB7_SCAWCRAh4cGPrjQmR2AvDXr@db.bit.io:5432/Hanlynui/robin-in-the-hood`,
+  `postgresql://Hanlynui:v2_44fB7_SCAWCRAh4cGPrjQmR2AvDXr@db.bit.io:5432/Hanlynui/robin-in-the-hood?sslmode=require`,
   config
 );
 module.exports = db;
