@@ -24,8 +24,8 @@ app.post("/create-checkout-session", async (req, res) => {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      success_url: `http://localhost:8080/api/stripe/success?session_id={CHECKOUT_SESSION_ID}&user_id=${user_id}&price_id=${price_id}`,
-      cancel_url: "http://localhost:8080/cancel",
+      success_url: `https://rith-trading.onrender.com/api/stripe/success?session_id={CHECKOUT_SESSION_ID}&user_id=${user_id}&price_id=${price_id}`,
+      cancel_url: "https://rith-trading.onrender.com/cancel",
       line_items: [
         {
           price: price_id,

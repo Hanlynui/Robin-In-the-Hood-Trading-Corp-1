@@ -6,7 +6,7 @@ export const fetchSinglePopularStockName = createAsyncThunk(
   async (ticker) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/proxy/rde/ticker-details?ticker=${ticker}`
+        `/proxy/rde/ticker-details?ticker=${ticker}`
       );
       return { ticker, results: response.data.results };
     } catch (error) {
@@ -24,14 +24,14 @@ export const fetchSinglePopularStockTickerPrice = createAsyncThunk(
       if (marketOpen) {
         console.log("me?");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
+          `/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
         );
         console.log(response.data);
         return { ticker, close: response.data.results[0].c };
       } else {
         console.log("got");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/open-close?ticker=${ticker}&date=${to}`
+          `/proxy/mde/open-close?ticker=${ticker}&date=${to}`
         );
         console.log(response.data);
         return {

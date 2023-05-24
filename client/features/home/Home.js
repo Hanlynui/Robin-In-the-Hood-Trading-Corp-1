@@ -11,6 +11,7 @@ import {
   fetchSinglePortfolio,
 } from "../portfolio/portfolioSlice";
 import { fetchSingleStockTickerPriceInfo } from "../singleStock/singleStockViewSlice.js";
+
 import ChatbotWrapper from "../chatBot/chatBotWrapper";
 
 const Home = () => {

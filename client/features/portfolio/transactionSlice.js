@@ -5,9 +5,7 @@ export const fetchTransactions = createAsyncThunk(
   "fetchTransactions",
   async (id) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/transactions/${id}`
-      );
+      const response = await axios.get(`/api/transactions/${id}`);
       return response.data;
     } catch (error) {
       console.log(error);

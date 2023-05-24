@@ -197,7 +197,7 @@ const Chatbot = ({ ticker }) => {
     }, 500);
 
     try {
-      const response = await fetch("http://localhost:8080/openAi/chat", {
+      const response = await fetch("/openAi/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -296,7 +296,7 @@ const Chatbot = ({ ticker }) => {
     }, 500);
     try {
       const response = await fetch(
-        `http://localhost:8080/polygon/summary/${symbol}?promptType=${promptType}`
+        `/polygon/summary/${symbol}?promptType=${promptType}`
       );
 
       clearInterval(loadingDots);

@@ -102,7 +102,7 @@ const ClosePriceChartPage = (props) => {
     }
 
     const response = await fetch(
-      `http://localhost:8080/polygon/candlestick/${ticker}/1/minute/${from}/${to}`
+      `/polygon/candlestick/${ticker}/1/minute/${from}/${to}`
     );
     const data = await response.json();
 

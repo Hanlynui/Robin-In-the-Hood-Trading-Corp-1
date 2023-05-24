@@ -5,9 +5,7 @@ export const fetchEntireWatchList = createAsyncThunk(
   "fetchEntireWatchList",
   async (id) => {
     try {
-      const watchlist = await axios.get(
-        `http://localhost:8080/proxy/watchlist/${id}`
-      );
+      const watchlist = await axios.get(`/proxy/watchlist/${id}`);
       return watchlist.data;
     } catch (error) {
       console.log(error);
@@ -19,10 +17,9 @@ export const addWatchListItem = createAsyncThunk(
   "addWatchListItem",
   async ({ id, ticker }) => {
     try {
-      const updatedWatchlist = await axios.post(
-        `http://localhost:8080/proxy/watchlist/${id}`,
-        { ticker: ticker }
-      );
+      const updatedWatchlist = await axios.post(`/proxy/watchlist/${id}`, {
+        ticker: ticker,
+      });
       return updatedWatchlist.data;
     } catch (error) {
       console.log(error);
@@ -35,7 +32,7 @@ export const removeWatchListItem = createAsyncThunk(
   async ({ id, ticker }) => {
     try {
       const afterItemDeleteWL = await axios.put(
-        `http://localhost:8080/proxy/watchlist/${id}/${ticker}`
+        `/proxy/watchlist/${id}/${ticker}`
       );
       return { ticker, tickers: afterItemDeleteWL.data.tickers };
     } catch (error) {
@@ -49,7 +46,7 @@ export const fetchWLSingleStockName = createAsyncThunk(
   async (ticker) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/proxy/rde/ticker-details?ticker=${ticker}`
+        `/proxy/rde/ticker-details?ticker=${ticker}`
       );
       return { ticker, results: response.data.results };
     } catch (error) {
@@ -67,14 +64,14 @@ export const fetchWLSingleStockTickerPrice = createAsyncThunk(
       if (marketOpen) {
         console.log("me?");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
+          `/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
         );
         console.log(response.data);
         return { ticker, close: response.data.results[0].c };
       } else {
         console.log("got");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/open-close?ticker=${ticker}&date=${to}`
+          `/proxy/mde/open-close?ticker=${ticker}&date=${to}`
         );
         console.log(response.data);
         return {
