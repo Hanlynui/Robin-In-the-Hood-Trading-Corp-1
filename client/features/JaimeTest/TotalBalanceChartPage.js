@@ -22,9 +22,7 @@ const TotalBalanceChartPage = (props) => {
 
   const fetchData = async () => {
     console.log("Fetch userId:", userId);
-    const response = await fetch(
-      `http://localhost:8080/api/totalBalanceHistory/balance/${userId}`
-    );
+    const response = await fetch(`/api/totalBalanceHistory/balance/${userId}`);
     const data = await response.json();
     console.log("Total Balance Chart Data:", data);
     const labels = data.map((entry) =>

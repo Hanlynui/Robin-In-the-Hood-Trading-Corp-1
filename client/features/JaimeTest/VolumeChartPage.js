@@ -7,9 +7,7 @@ const VolumeChartPage = ({ ticker }) => {
   useEffect(() => {
     const fetchData = async () => {
       // Replace with your API URL
-      const response = await fetch(
-        `http://localhost:8080/polygon/candlestick/${ticker}`
-      );
+      const response = await fetch(`/polygon/candlestick/${ticker}`);
       const data = await response.json();
       console.log("Fetched data:", data);
 

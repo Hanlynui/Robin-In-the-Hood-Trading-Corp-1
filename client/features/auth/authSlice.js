@@ -52,7 +52,7 @@ export const editUserProfileInfo = createAsyncThunk(
     try {
       if (token) {
         const res = await axios.put(
-          `http://localhost:8080/api/users/${id}`,
+          `/api/users/${id}`,
           { first_name, last_name, email },
           {
             headers: {
@@ -75,7 +75,7 @@ export const editUserPassword = createAsyncThunk(
     const token = window.localStorage.getItem(TOKEN);
     try {
       const res = await axios.put(
-        `http://localhost:8080/api/users/password/${id}`,
+        `/api/users/password/${id}`,
         {
           oldPassword: oldPassword,
           newPassword: newPassword,

@@ -11,9 +11,7 @@ export const fetchUserPortfolio = createAsyncThunk(
   "fetchUserPortfolio",
   async ({ userId }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/portfolio/${userId}`
-      );
+      const response = await axios.get(`/api/portfolio/${userId}`);
       return response.data;
     } catch (err) {
       console.log(err);
@@ -26,17 +24,14 @@ export const buyStockForPortfolio = createAsyncThunk(
   async ({ userId, stockTicker, stockName, quantity, purchasePrice }) => {
     const transaction_type = "buy";
     try {
-      const response = await axios.post(
-        `http://localhost:8080/api/portfolio/transaction`,
-        {
-          userId,
-          stockTicker,
-          stockName,
-          transaction_type,
-          quantity,
-          purchasePrice,
-        }
-      );
+      const response = await axios.post(`/api/portfolio/transaction`, {
+        userId,
+        stockTicker,
+        stockName,
+        transaction_type,
+        quantity,
+        purchasePrice,
+      });
       //going to return to use successful or not
       return response;
     } catch (err) {
@@ -49,17 +44,14 @@ export const sellStockForPortfolio = createAsyncThunk(
   async ({ userId, stockTicker, stockName, quantity, purchasePrice }) => {
     const transaction_type = "sell";
     try {
-      const response = await axios.post(
-        `http://localhost:8080/api/portfolio/transaction`,
-        {
-          userId,
-          stockTicker,
-          stockName,
-          transaction_type,
-          quantity,
-          purchasePrice,
-        }
-      );
+      const response = await axios.post(`/api/portfolio/transaction`, {
+        userId,
+        stockTicker,
+        stockName,
+        transaction_type,
+        quantity,
+        purchasePrice,
+      });
       //going to return to use successful or not
       return response.data;
     } catch (err) {

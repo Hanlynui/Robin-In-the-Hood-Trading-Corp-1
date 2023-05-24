@@ -9,7 +9,7 @@ const StockData = ({ ticker }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/polygon/candlestick/${ticker}`)
+      .get(`/polygon/candlestick/${ticker}`)
       .then((response) => {
         setStockData(response.data);
       })

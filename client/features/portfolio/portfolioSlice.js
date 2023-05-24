@@ -6,9 +6,7 @@ export const fetchSinglePortfolio = createAsyncThunk(
   "singlePortfolio",
   async (id) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/portfolio/${id}`
-      );
+      const response = await axios.get(`/api/portfolio/${id}`);
       return response.data.portfolio;
     } catch (error) {
       console.log(error);
@@ -22,7 +20,7 @@ export const updatePortfolioValuation = createAsyncThunk(
   async ({ id, totalValuation }) => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/totalBalanceHistory/balance/${id}`,
+        `/api/totalBalanceHistory/balance/${id}`,
         { newAssetsValue: totalValuation }
       );
       return response.data;

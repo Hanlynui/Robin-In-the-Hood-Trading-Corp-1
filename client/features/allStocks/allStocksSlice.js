@@ -8,7 +8,7 @@ export const fetchAllStocks = createAsyncThunk(
       date = "2023-05-16";
       console.log("Thunk Date:", date, "Thunk Page:", page);
       // todo currently hardcoded to the close on the FE, need to make a seperate thunk for price update functionality, getstockpricethunk
-      const response = await axios.get("http://localhost:8080/proxy/mde/all", {
+      const response = await axios.get("/proxy/mde/all", {
         params: {
           date: date,
           page: page,
@@ -29,7 +29,7 @@ export const fetchAllStockDetails = createAsyncThunk(
   async ({ ticker }) => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/proxy/rde/ticker-details?ticker=${ticker}`
+        `/proxy/rde/ticker-details?ticker=${ticker}`
       );
       return { ticker, results: response.data.results };
     } catch (error) {
@@ -47,14 +47,14 @@ export const fetchAllStockTickerPriceSingle = createAsyncThunk(
       if (marketOpen) {
         console.log("me?");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
+          `/proxy/mde/aggregates?ticker=${ticker}&from=${from}&to=${to}`
         );
         // console.log(response.data);
         return { ticker, close: response.data.results[0].c };
       } else {
         console.log("got");
         const response = await axios.get(
-          `http://localhost:8080/proxy/mde/open-close?ticker=${ticker}&date=${to}`
+          `/proxy/mde/open-close?ticker=${ticker}&date=${to}`
         );
         // console.log(response.data);
         return {

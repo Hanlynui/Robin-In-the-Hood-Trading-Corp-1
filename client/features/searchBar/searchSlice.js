@@ -5,9 +5,7 @@ export const fetchSearchResults = createAsyncThunk(
   "fetchSearchResults",
   async ({ symbol }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(
-        `http://localhost:8080/api/ticker/${symbol}`
-      );
+      const response = await axios.get(`/api/ticker/${symbol}`);
       return response.data;
     } catch (err) {
       console.log(err);
