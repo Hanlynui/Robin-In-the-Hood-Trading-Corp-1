@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import TotalBalanceChart from "./TotalBalanceChart";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TotalBalanceChartPage = (props) => {
   const [lastTotalBalance, setLastTotalBalance] = useState(null);

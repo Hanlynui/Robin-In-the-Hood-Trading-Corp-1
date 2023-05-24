@@ -238,6 +238,7 @@ const Home = () => {
               onClick={fetchPortfolioData}
             >
               <i className="fa-solid fa-arrows-rotate"></i> Refresh
+              <i className="fa-solid fa-arrows-rotate"></i> Refresh
             </button>
             <TotalBalanceChartPage userId={userId} reload={reload} />
           </div>
