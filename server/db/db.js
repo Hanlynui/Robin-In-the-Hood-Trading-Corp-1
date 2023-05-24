@@ -21,8 +21,17 @@ if (process.env.DATABASE_URL) {
   };
 }
 
-const db = new Sequelize(
-  `postgresql://Hanlynui:v2_44fB7_SCAWCRAh4cGPrjQmR2AvDXr@db.bit.io:5432/Hanlynui/robin-in-the-hood?sslmode=require`,
-  config
-);
+// const db = new Sequelize(``, config);
+
+const name = process.env.DB_NAME;
+const pass = process.env.DB_PASS;
+const host = process.env.DATABASE_HOST;
+
+const db = new Sequelize(name, "postgres", pass, {
+  host: host,
+  dialect: "postgres",
+});
+
 module.exports = db;
+
+// `postgresql://Hanlynui:v2_44fB7_SCAWCRAh4cGPrjQmR2AvDXr@db.bit.io:5432/Hanlynui/robin-in-the-hood?sslmode=require`
