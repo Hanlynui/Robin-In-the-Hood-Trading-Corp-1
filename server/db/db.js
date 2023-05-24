@@ -23,12 +23,8 @@ if (process.env.LOGGING === "true") {
 
 // const db = new Sequelize(``, config);
 
-const name = process.env.DB_NAME;
-const pass = process.env.DB_PASS;
-const host = process.env.DATABASE_HOST;
-
-const db = new Sequelize(name, "postgres", pass, {
-  host: host,
+const db = new Sequelize("stockdbAWS", "postgres", "Galahen101!", {
+  host: "aws-stock-db.cf3ynni7atfq.us-east-1.rds.amazonaws.com",
   dialect: "postgres",
 });
 
