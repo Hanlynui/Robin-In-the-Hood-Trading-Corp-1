@@ -2,7 +2,7 @@
 
 Our core product, Robin In The Hood is a groundbreaking virtual trading app that combines the excitement of video games with the world of finance, empowering users to practice stock and financial trading without risking their hard-earned money. Our mission is to create a captivating platform that educates users on making informed investment decisions while offering a plethora of innovative features that distinguish us from the competition. We envision capturing the attention of industry giants with our extraordinary offerings.
 
-**Link to our site**: https://mono-repo-rds.onrender.com/ ***** need to change this robininthehood.online
+**Link to our site**: (https://rith-trading.onrender.com/)
 
 **Key Features:**
 
